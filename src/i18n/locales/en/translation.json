@@ -1,0 +1,163 @@
+{
+  "common": {
+    "notFound": "not found"
+  },
+  "app": {
+    "title": "ViralFlow GUI",
+    "subtitle": "Fiocruz Genomic Network Technology • GUI v{{guiVersion}} • ViralFlow: {{viralflowVersion}}"
+  },
+  "tabs": {
+    "home": "Home",
+    "params": "Parameters",
+    "run": "Run",
+    "results": "Results",
+    "settings": "Settings"
+  },
+  "home": {
+    "title": "ViralFlow GUI",
+    "subtitle": "Technology from Fiocruz Genomic Network. Built for reference virus analyses (version v1.3.0).",
+    "versionInfo": "Configure input arguments, run the pipeline, and visualize results in a unified interface.",
+    "goToParams": "Go to parameters",
+    "taglineLine1": "Technology from the Fiocruz Genomic Network.",
+    "taglineLine2": "Built for analyses with reference viruses."
+  },
+  "settings": {
+    "integrationTitle": "Integration with ViralFlow",
+    "repoLabel": "ViralFlow repository (git)",
+    "repoNotConfigured": "Not configured. You can clone it into ~/ViralFlow.",
+    "cloneButton": "Clone ViralFlow to ~/ViralFlow",
+    "gitPullButton": "Update ViralFlow",
+    "refreshVersionButton": "Refresh ViralFlow version",
+    "statusCloning": "Cloning ViralFlow into ~/ViralFlow...",
+    "statusCloneExists": "Repository already existed at: {{path}}",
+    "statusCloneOk": "Repository cloned at: {{path}}",
+    "statusCloneError": "Error cloning ViralFlow: {{message}}",
+    "statusGitPull": "Running git pull...",
+    "statusGitPullOk": "git pull finished:\\n{{log}}",
+    "statusGitPullError": "Error running git pull: {{message}}",
+    "statusQueryVersion": "Querying ViralFlow version...",
+    "statusQueryVersionError": "Error querying version: {{message}}",
+    "vfVersionTitle": "ViralFlow version",
+    "vfVersionDetected": "Detected:",
+    "vfVersionNotDetected": "Not detected or viralflow command unavailable.",
+    "languageTitle": "Idioma / Language",
+    "languageHelp": "Select the interface language.",
+    "updatePangolinButton": "Update Pangolin",
+    "updatePangolinConfirm": "Select the Pangolin update type:",
+    "updatePangolinRunning": "Updating Pangolin...",
+    "snpeffButton": "Customize snpEff database",
+    "snpeffOrgNamePrompt": "Enter snpEff org_name:",
+    "snpeffGenomeCodePrompt": "Enter snpEff genome_code:",
+    "snpeffRunning": "Updating snpEff database...",
+    "logsPlaceholder": "Configuration execution logs will be shown here."
+  },
+  "params": {
+    "goToRun": "Go to execution",
+    "loading": "Loading parameters…",
+    "sections": {
+      "executionMode": "Execution mode",
+      "inputs": "Inputs",
+      "output": "Output",
+      "quality": "Quality and filters",
+      "intrahost": "Intrahost",
+      "performance": "Execution / Performance",
+      "snpeff": "SnpEff and mapped files",
+      "dedup": "Deduplication (fastp)",
+      "customMode": "Custom mode",
+      "saveLoad": "Save/Load parameters",
+      "run": "Run",
+      "actions": "Actions"
+    },
+    "fields": {
+      "virus": "Virus (virus)",
+      "virusOptionSarsCov2": "SARS-CoV-2 (default)",
+      "virusOptionCustom": "Custom",
+      "inDir": "Input directory (inDir)",
+      "primersBED": "Primers BED (primersBED)",
+      "outDir": "Output directory (outDir)",
+      "minLen": "Minimum read length (minLen)",
+      "depth": "Minimum depth (depth)",
+      "mapping_quality": "Mapping quality (mapping_quality)",
+      "base_quality": "Base quality (base_quality)",
+      "trimLen": "Trim at read ends (trimLen)",
+      "minDpIntrahost": "Minimum depth (minDpIntrahost)",
+      "nextflowSimCalls": "Simultaneous Nextflow calls (nextflowSimCalls)",
+      "fastp_threads": "fastp threads (fastp_threads)",
+      "bwa_threads": "bwa threads (bwa_threads)",
+      "runSnpEff": "Run snpEff (runSnpEff)",
+      "writeMappedReads": "Generate mapped FASTQ (writeMappedReads)",
+      "dedup": "Enable deduplication (dedup)",
+      "ndedup": "Deduplication level (ndedup)",
+      "refGenomeCode": "RefSeq code (refGenomeCode)",
+      "referenceGFF": "Reference GFF file (referenceGFF)",
+      "referenceGenome": "Reference genome FASTA (referenceGenome)"
+    },
+    "placeholders": {
+      "inDir": "launchDir/input/",
+      "outDir": "launchDir/output/",
+      "nextflowSimCalls": "empty = pipeline default"
+    },
+    "buttons": {
+      "selectFolder": "...",
+      "selectFile": "...",
+      "goToRun": "Go to run",
+      "saveParams": "Save to .params file",
+      "loadParams": "Load from .params file"
+    },
+    "messages": {
+      "saveParamsError": "Error while saving params file.",
+      "loadParamsError": "Error while loading params file.",
+      "loadParamsInvalid": "Invalid or empty params file."
+    }
+  },
+  "run": {
+    "title": "Run",
+    "logsPlaceholder": "ViralFlow execution logs will be shown here.",
+    "goToResults": "Go to results",
+    "description": "Confirm the parameters configured in the Parameters tab and click Run to start ViralFlow.",
+    "runButton": "Run ViralFlow",
+    "commandPreviewLabel": "Command (preview)",
+    "noParams": "No parameters loaded. Please adjust the Parameters tab first.",
+    "statusIdle": "Ready to run.",
+    "statusRunning": "Running ViralFlow...",
+    "statusSuccess": "Execution finished.",
+    "statusError": "Execution failed.",
+    "logsStdout": "Output (stdout)",
+    "logsStderr": "Errors (stderr)"
+  },
+  "results": {
+    "title": "Results",
+    "placeholder": "In a next step, this screen will show the folder/file browser and the preview.",
+    "description": "Browse the output directory and preview selected files generated by ViralFlow.",
+    "outputDirLabel": "Output directory",
+    "changeDirTooltip": "Change output directory",
+    "noDir": "No output directory selected. Run ViralFlow or choose a folder above.",
+    "fileListTitle": "Files and folders",
+    "loading": "Loading...",
+    "emptyDir": "This directory is empty.",
+    "previewTitle": "Preview",
+    "noFileSelected": "Select a file on the left to preview it.",
+    "unsupportedPreview": "Preview not available for this file type. You can open it with your system's default application.",
+    "expandViewer": "Expand preview",
+    "collapseViewer": "Reduce preview",
+    "goUpTooltip": "Go up one level"
+  },
+  "setup": {
+    "title": "Preparing environment",
+    "description": "Before using ViralFlow GUI, you need to install some dependencies for your user.",
+    "micromambaTitle": "Micromamba",
+    "micromambaNotInstalled": "Micromamba not found.",
+    "micromambaInstalled": "Micromamba installed. Version: {{version}}",
+    "installMicromambaButton": "Install micromamba",
+    "viralflowTitle": "ViralFlow",
+    "viralflowNotInstalled": "ViralFlow not found inside the micromamba environment.",
+    "viralflowInstalled": "ViralFlow installed. Detected version: {{version}}",
+    "installViralflowButton": "Install ViralFlow",
+    "buildContainersButton": "Build containers",
+    "logsTitle": "Installation logs",
+    "phaseInstallingMicromamba": "Installing micromamba...",
+    "phaseInstallingViralflow": "Installing ViralFlow...",
+    "phaseBuildingContainers": "Building containers...",
+    "closeButton": "Close"
+  }
+}

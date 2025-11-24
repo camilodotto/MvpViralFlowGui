@@ -1,0 +1,163 @@
+{
+  "common": {
+    "notFound": "não encontrado"
+  },
+  "app": {
+    "title": "ViralFlow GUI",
+    "subtitle": "Tecnologia da Rede Genômica Fiocruz • GUI v{{guiVersion}} • ViralFlow: {{viralflowVersion}}"
+  },
+  "tabs": {
+    "home": "Home",
+    "params": "Parâmetros",
+    "run": "Execução",
+    "results": "Resultados",
+    "settings": "Configurações"
+  },
+  "home": {
+    "title": "ViralFlow GUI",
+    "subtitle": "Tecnologia da Rede Genômica Fiocruz. Construído para análises com vírus de referência (versão v1.3.0).",
+    "versionInfo": "Configure os argumentos de entrada, execute o pipeline e visualize os resultados em uma interface unificada.",
+    "goToParams": "Ir para parâmetros",
+    "taglineLine1": "Tecnologia da Rede Genômica Fiocruz.",
+    "taglineLine2": "Construído para análises com vírus de referência."
+  },
+  "settings": {
+    "integrationTitle": "Integração com ViralFlow",
+    "repoLabel": "Repositório ViralFlow (git)",
+    "repoNotConfigured": "Não configurado. Você pode clonar em ~/ViralFlow.",
+    "cloneButton": "Clonar ViralFlow em ~/ViralFlow",
+    "gitPullButton": "Atualizar ViralFlow",
+    "refreshVersionButton": "Atualizar versão do ViralFlow",
+    "statusCloning": "Clonando ViralFlow em ~/ViralFlow...",
+    "statusCloneExists": "Repositório já existia em: {{path}}",
+    "statusCloneOk": "Repositório clonado em: {{path}}",
+    "statusCloneError": "Erro ao clonar ViralFlow: {{message}}",
+    "statusGitPull": "Executando git pull...",
+    "statusGitPullOk": "git pull concluído:\\n{{log}}",
+    "statusGitPullError": "Erro ao executar git pull: {{message}}",
+    "statusQueryVersion": "Consultando versão do ViralFlow...",
+    "statusQueryVersionError": "Erro ao consultar versão: {{message}}",
+    "vfVersionTitle": "Versão do ViralFlow",
+    "vfVersionDetected": "Detectado:",
+    "vfVersionNotDetected": "Não detectado ou comando viralflow indisponível.",
+    "languageTitle": "Idioma / Language",
+    "languageHelp": "Selecione o idioma da interface.",
+    "updatePangolinButton": "Atualizar Pangolin",
+    "updatePangolinConfirm": "Selecione o tipo de atualização do Pangolin:",
+    "updatePangolinRunning": "Atualizando Pangolin...",
+    "snpeffButton": "Customizar banco do snpEff",
+    "snpeffOrgNamePrompt": "Informe o org_name para o snpEff:",
+    "snpeffGenomeCodePrompt": "Informe o genome_code para o snpEff:",
+    "snpeffRunning": "Atualizando banco do snpEff...",
+    "logsPlaceholder": "Aqui serão exibidos os logs de execução de configurações."
+  },
+  "params": {
+    "goToRun": "Ir para execução",
+    "loading": "Carregando parâmetros…",
+    "sections": {
+      "executionMode": "Modo de execução",
+      "inputs": "Entradas",
+      "output": "Saída",
+      "quality": "Qualidade e filtros",
+      "intrahost": "Intrahospedeiro",
+      "performance": "Execução / Desempenho",
+      "snpeff": "SnpEff e arquivos mapeados",
+      "dedup": "Desduplicação (fastp)",
+      "customMode": "Modo custom",
+      "saveLoad": "Salvar/Carregar parâmetros",
+      "run": "Execução",
+      "actions": "Ações"
+    },
+    "fields": {
+      "virus": "Vírus (virus)",
+      "virusOptionSarsCov2": "SARS-CoV-2 (default)",
+      "virusOptionCustom": "Custom",
+      "inDir": "Diretório de entrada (inDir)",
+      "primersBED": "Primers BED (primersBED)",
+      "outDir": "Diretório de saída (outDir)",
+      "minLen": "Tamanho mínimo do read (minLen)",
+      "depth": "Profundidade mínima (depth)",
+      "mapping_quality": "Qualidade de mapeamento (mapping_quality)",
+      "base_quality": "Qualidade de base (base_quality)",
+      "trimLen": "Trim nas extremidades (trimLen)",
+      "minDpIntrahost": "Profundidade mínima (minDpIntrahost)",
+      "nextflowSimCalls": "Chamadas simultâneas Nextflow (nextflowSimCalls)",
+      "fastp_threads": "Threads fastp (fastp_threads)",
+      "bwa_threads": "Threads bwa (bwa_threads)",
+      "runSnpEff": "Rodar snpEff (runSnpEff)",
+      "writeMappedReads": "Gerar FASTQ mapeados (writeMappedReads)",
+      "dedup": "Habilitar deduplicação (dedup)",
+      "ndedup": "Nível de deduplicação (ndedup)",
+      "refGenomeCode": "Código RefSeq (refGenomeCode)",
+      "referenceGFF": "Arquivo GFF de referência (referenceGFF)",
+      "referenceGenome": "Genoma de referência FASTA (referenceGenome)"
+    },
+    "placeholders": {
+      "inDir": "launchDir/input/",
+      "outDir": "launchDir/output/",
+      "nextflowSimCalls": "vazio = default do pipeline"
+    },
+    "buttons": {
+      "selectFolder": "...",
+      "selectFile": "...",
+      "goToRun": "Ir para execução",
+      "saveParams": "Salvar em arquivo .params",
+      "loadParams": "Carregar de arquivo .params"
+    },
+    "messages": {
+      "saveParamsError": "Erro ao salvar arquivo de parâmetros.",
+      "loadParamsError": "Erro ao carregar arquivo de parâmetros.",
+      "loadParamsInvalid": "Arquivo de parâmetros inválido ou vazio."
+    }
+  },
+  "run": {
+    "title": "Execução",
+    "logsPlaceholder": "Aqui serão exibidos os logs de execução do ViralFlow.",
+    "goToResults": "Ir para resultados",
+    "description": "Confirme os parâmetros configurados na aba Parâmetros e clique em Executar para iniciar o ViralFlow.",
+    "runButton": "Executar ViralFlow",
+    "commandPreviewLabel": "Comando (preview)",
+    "noParams": "Nenhum parâmetro carregado. Ajuste a aba Parâmetros primeiro.",
+    "statusIdle": "Pronto para executar.",
+    "statusRunning": "Executando ViralFlow...",
+    "statusSuccess": "Execução concluída.",
+    "statusError": "Execução terminou com erro.",
+    "logsStdout": "Saída (stdout)",
+    "logsStderr": "Erros (stderr)"
+  },
+  "results": {
+    "title": "Resultados",
+    "placeholder": "Em uma próxima etapa, esta tela exibirá o navegador de pastas/arquivos e o preview.",
+    "description": "Navegue pelo diretório de saída e visualize arquivos gerados pelo ViralFlow.",
+    "outputDirLabel": "Diretório de saída",
+    "changeDirTooltip": "Alterar diretório de saída",
+    "noDir": "Nenhum diretório de saída selecionado. Execute o ViralFlow ou escolha uma pasta acima.",
+    "fileListTitle": "Arquivos e pastas",
+    "loading": "Carregando...",
+    "emptyDir": "Esse diretório está vazio.",
+    "previewTitle": "Visualização",
+    "noFileSelected": "Selecione um arquivo à esquerda para visualizá-lo.",
+    "unsupportedPreview": "Visualização não disponível para este tipo de arquivo. Você pode abri-lo no aplicativo padrão do sistema.",
+    "expandViewer": "Ampliar visualização",
+    "collapseViewer": "Reduzir visualização",
+    "goUpTooltip": "Subir um nível"
+  },
+  "setup": {
+    "title": "Preparando ambiente",
+    "description": "Antes de usar o ViralFlow GUI, é preciso instalar algumas dependências no seu usuário.",
+    "micromambaTitle": "Micromamba",
+    "micromambaNotInstalled": "Micromamba não encontrado.",
+    "micromambaInstalled": "Micromamba instalado. Versão: {{version}}",
+    "installMicromambaButton": "Instalar micromamba",
+    "viralflowTitle": "ViralFlow",
+    "viralflowNotInstalled": "ViralFlow não encontrado dentro do ambiente micromamba.",
+    "viralflowInstalled": "ViralFlow instalado. Versão detectada: {{version}}",
+    "installViralflowButton": "Instalar ViralFlow",
+    "buildContainersButton": "Construir containers",
+    "logsTitle": "Logs de instalação",
+    "phaseInstallingMicromamba": "Instalando micromamba...",
+    "phaseInstallingViralflow": "Instalando ViralFlow...",
+    "phaseBuildingContainers": "Construindo containers...",
+    "closeButton": "Fechar"
+  }
+}

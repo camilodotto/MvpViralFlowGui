@@ -1,0 +1,164 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1);
+  border: 1px solid var(--color-border);
+}
+
+.sectionTitle {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.fieldRow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.value {
+  font-size: 0.9rem;
+}
+
+.buttonRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.button {
+  border-radius: 999px;
+  border: 1px solid var(--color-primary);
+  background-color: #ffffff;
+  color: var(--color-primary);
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.status {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  white-space: pre-wrap;
+}
+
+.input,
+.select {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  font-size: 0.9rem;
+}
+
+
+.languageSelect {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  font-size: 0.9rem;
+}
+
+.logsContainer {
+  margin-top: 8px;
+  background-color: #020617;
+  color: #e5e7eb;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  padding: 8px 10px;
+  height: 220px;
+  overflow: auto;
+}
+
+.logs {
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+  font-size: 0.8rem;
+  line-height: 1.25rem;
+  white-space: pre-wrap;
+}
+
+.logError {
+  color: #fecaca;
+}
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
+  border: 1px solid var(--color-border);
+  max-width: 420px;
+  width: 100%;
+}
+
+.modalTitle {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.modalText {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+}
+
+.modalActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.buttonSecondary {
+  border-color: var(--color-border);
+  background-color: transparent;
+}
+
+.modalField {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modalLabel {
+  font-size: 0.85rem;
+}
+
+.modalInput {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  font-size: 0.9rem;
+}

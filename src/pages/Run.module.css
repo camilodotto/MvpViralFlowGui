@@ -1,0 +1,129 @@
+.root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.section {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+}
+
+.logsSection {
+  flex: 1;
+  min-height: 0;
+}
+
+.sectionTitle {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.logBox {
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  background-color: #f9fafb;
+  padding: 8px;
+  font-family: monospace;
+  font-size: 0.8rem;
+  height: 260px;
+  overflow: auto;
+}
+
+.runButton {
+  border-radius: 999px;
+  border: none;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+
+.secondaryButton {
+  border-radius: 999px;
+  border: 1px solid var(--color-primary);
+  background-color: #ffffff;
+  color: var(--color-primary);
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.status {
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.statusRunning {
+  color: #1d4ed8;
+}
+
+.statusSuccess {
+  color: #16a34a;
+}
+
+.statusError {
+  color: #b91c1c;
+}
+
+.commandPreview {
+  font-family: monospace;
+  font-size: 0.8rem;
+  background-color: #0f172a;
+  color: #e5e7eb;
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  white-space: pre-wrap;
+  word-break: break-all;
+  margin-top: 8px;
+}
+
+.logsHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+
+.logError {
+  color: #ef4444;
+}
+
+
+.logsBox {
+  margin-top: 8px;
+  padding: 8px;
+  background-color: #020617;
+  color: #e5e7eb;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  white-space: pre-wrap;
+  word-break: break-all;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+
+.actionsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
