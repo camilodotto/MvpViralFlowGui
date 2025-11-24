@@ -450,7 +450,7 @@ ipcMain.handle('repo:cloneDefault', () => {
     resolve({ ok: true, alreadyExists: false, path: target });
   });
 });
-);
+
 
 ipcMain.handle('repo:gitPull', () => {
   return new Promise((resolve, reject) => {
@@ -467,7 +467,7 @@ ipcMain.handle('repo:gitPull', () => {
     resolve({ ok: true, log: '[MVP] git pull simulado com sucesso.' });
   });
 });
-);
+
 
 ipcMain.handle('dialog:selectDirectory', async (_event, defaultPath) => {
   const basePath = defaultPath || defaultRepoPath() || require('os').homedir();
@@ -556,7 +556,7 @@ ipcMain.handle('viralflow:getVersion', async () => {
   const info = await detectViralflow();
   return info.version || null;
 });
-);
+
 
 ipcMain.handle('env:checkInstall', async () => {
   const cfg = loadConfig();
@@ -571,7 +571,7 @@ ipcMain.handle('env:checkInstall', async () => {
     containersBuilt: !!(cfg && cfg.containersBuilt && fakeState.containersBuilt),
   };
 });
-);
+
 
 ipcMain.handle('env:installMicromamba', async () => {
   sendSetupLog('stdout', '\n=== [MVP] Simulando instalação do micromamba ===\n');
@@ -589,7 +589,7 @@ ipcMain.handle('env:installMicromamba', async () => {
     containersBuilt: fakeState.containersBuilt,
   };
 });
-);
+
 
 ipcMain.handle('env:installViralflow', async () => {
   sendSetupLog('stdout', '\n=== [MVP] Simulando instalação do ViralFlow ===\n');
@@ -630,7 +630,7 @@ ipcMain.handle('env:installViralflow', async () => {
     containersBuilt: false,
   };
 });
-);
+
 
 ipcMain.handle('env:buildContainers', async () => {
   sendSetupLog('stdout', '\n=== [MVP] Simulando construção dos containers do ViralFlow ===\n');
@@ -657,7 +657,7 @@ ipcMain.handle('env:buildContainers', async () => {
   sendSetupLog('stdout', '\nContainers (fake) construídos com sucesso. Nenhum comando real foi executado.\n');
   return { ok: true, containersBuilt: true };
 });
-);
+
 
 ipcMain.handle('env:updatePangolin', async (_event, mode) => {
   sendSetupLog('stdout', '\n=== [MVP] Simulando atualização do Pangolin ===\n');
@@ -683,7 +683,7 @@ ipcMain.handle('env:updatePangolin', async (_event, mode) => {
 
   return { ok: true };
 });
-);
+
 
 
 ipcMain.handle('env:addSnpeffEntry', async (_event, payload) => {
@@ -714,7 +714,7 @@ ipcMain.handle('env:addSnpeffEntry', async (_event, payload) => {
   );
   return { ok: true };
 });
-);
+
 
 
 
@@ -747,7 +747,7 @@ ipcMain.handle('viralflow:run', (_event, params) => {
     });
   });
 });
-);
+
 
 
 ipcMain.handle('fs:listDir', async (_event, dirPath) => {

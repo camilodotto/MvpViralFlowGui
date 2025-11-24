@@ -1,12 +1,19 @@
 # ViralFlow GUI – MVP (mvp-viralflow-gui_v0.26.8)
 
-Esta é uma versão **MVP de demonstração** da aplicação **ViralFlow GUI** em Electron + React.
+Esta é uma versão **MVP totalmente simulada** da aplicação **ViralFlow GUI**, construída em
+**Electron + React**.
 
-> ⚠️ **Importante:** nesta versão **nenhum comando real é executado** no sistema operacional.
-> Todas as chamadas ao `micromamba` e ao `viralflow` são **simuladas** (“fake”), apenas com
-> registro de log na interface.  
-> A aba de **Parâmetros** continua gerando o arquivo `.params` e a aba de **Resultados**
-> continua apenas **lendo/mostrando arquivos e pastas já existentes**.
+Desde a concepção deste MVP, o objetivo é **validar o fluxo de telas, usabilidade e logs**
+**sem executar nenhum comando real** do pipeline ViralFlow ou de ferramentas auxiliares.
+
+> ✅ **Use este projeto para:**
+> - Demonstrar a interface para usuários finais;
+> - Validar o fluxo de instalação / configuração / execução;
+> - Testar leitura de parâmetros e visualização de resultados já existentes em disco.  
+>
+> ❌ **Não use este projeto para:**
+> - Executar o pipeline ViralFlow de verdade;
+> - Gerar resultados reais a partir de arquivos FASTQ/entrada bruta.
 
 ---
 
@@ -14,9 +21,9 @@ Esta é uma versão **MVP de demonstração** da aplicação **ViralFlow GUI** e
 
 - Node.js **>= 18**
 - npm (ou pnpm/yarn, se preferir)
-- Git (apenas para fins de desenvolvimento; **não é usado pela aplicação em modo MVP**)
+- Git (apenas para clonar/baixar o código, não é usado pela GUI em tempo de execução)
 
-Não é necessário ter `micromamba` nem `viralflow` instalados para rodar esta versão.
+> ℹ️ **Não é necessário** ter `micromamba` nem `viralflow` instalados para rodar este MVP.
 
 ---
 
@@ -42,83 +49,112 @@ npm run start
 
 Esse comando irá:
 
-1. Gerar o bundle do front‑end (Vite).
+1. Gerar o bundle do front-end (Vite);
 2. Iniciar o processo Electron que carrega a GUI.
 
-A janela do **ViralFlow GUI – MVP** será aberta.
+Uma janela do **ViralFlow GUI – MVP** será aberta.
 
 ---
 
-## 4. Comportamento especial deste MVP
+## 4. Como funciona o MVP (tudo é simulado)
 
 ### 4.1. Estado de instalação (micromamba / ViralFlow)
 
-- **Sempre que a aplicação iniciar**, ela se comporta como se **micromamba** e **ViralFlow**
-  **não estivessem instalados**.
-- Por isso, o **modal inicial de instalação** é sempre exibido na abertura.
-- Os botões de:
+- **Sempre que a aplicação inicia**, ela considera que:
+  - `micromamba` **não está instalado**;
+  - `ViralFlow` **não está instalado**;
+  - Containers **não foram construídos**.
+
+- Por isso, o **modal inicial de instalação** é sempre exibido.
+
+- Os botões:
   - **Instalar micromamba**
   - **Instalar ViralFlow**
   - **Construir containers**
   - **Atualizar Pangolin**
   - **Customizar snpEff**
 
-  **não executam nenhum comando real**.  
-  Eles apenas:
-  - Registram mensagens de log na área de logs.
-  - Atualizam um **estado interno em memória** para que, dentro da sessão atual,
-    a interface passe a considerar que as etapas foram “concluídas com sucesso”.
+  funcionam da seguinte forma neste MVP:
 
-Ao fechar e abrir novamente a aplicação, o estado volta ao início (não instalado).
+  - Não executam nenhum comando real (`micromamba`, `viralflow`, `git`, `curl`, etc.);
+  - Apenas registram mensagens de log na área apropriada;
+  - Atualizam um **estado interno em memória** para que, **durante a sessão atual**, a UI
+    passe a enxergar essas etapas como “concluídas com sucesso”.
+
+Ao fechar e abrir novamente a aplicação, o estado volta ao início (ambiente não instalado).
+
+---
 
 ### 4.2. Aba de Execução (Run)
 
+Na aba **Execução**:
+
 - O botão **Executar**:
-  - Gera normalmente o arquivo `viralflow-gui.params` no diretório configurado do ViralFlow
-    (conforme a aba de Configurações).
-  - **Não executa** o comando real `micromamba run ... viralflow -run ...`.
-  - Apenas envia logs simulados para a área de execução, como se a execução tivesse
-    sido concluída com sucesso.
+  - Gera o arquivo `viralflow-gui.params` no diretório configurado do ViralFlow
+    (conforme a aba **Configurações**);
+  - **Não executa** o comando real `micromamba run -n viralflow viralflow ...`;
+  - Envia mensagens de log simuladas para a área de execução, como se a execução tivesse
+    ocorrido com sucesso.
+
+Ou seja: o usuário consegue ver *como* seria o comando e *como* seriam os logs, mas
+nenhum processo externo é iniciado.
+
+---
 
 ### 4.3. Abas de Parâmetros e Resultados
 
+Estas duas abas se comportam de forma mais “realista”, mas ainda sem disparar o pipeline:
+
 - **Parâmetros**
-  - Continua salvando e carregando parâmetros no formato aceito pelo ViralFlow (`.params`),
-    usando o comportamento já existente.
+  - Permite editar, salvar e carregar parâmetros no formato aceito pelo ViralFlow (`.params`);
+  - O arquivo é escrito/lido normalmente no sistema de arquivos.
+
 - **Resultados**
-  - Continua listando pastas e arquivos de resultados **já existentes** no sistema de arquivos.
-  - Não há geração de novos resultados automaticamente nesta versão, pois o pipeline
-    não é executado de verdade.
+  - Lista e abre arquivos/pastas já existentes no diretório de resultados;
+  - A interface apenas **lê** o que já está no disco — ela **não cria** novos resultados,
+    pois o pipeline não é executado neste MVP.
 
 ---
 
-## 5. Estrutura geral
+## 5. Estrutura geral do projeto
 
 - `electron/main.js`  
-  Contém a lógica principal do processo Electron (IPC, leitura/escrita de arquivos,
-  simulação das chamadas ao micromamba/ViralFlow, etc.).
+  Processo principal do Electron: IPC, leitura/escrita de arquivos, simulação de
+  instalação/execução e envio de logs.
+
 - `electron/preload.js`  
-  Faz o bridge seguro entre o processo principal e o front‑end React (`window.api`).
+  Faz o bridge seguro entre o processo principal e o front-end React, expondo a
+  API em `window.api`.
+
 - `src/`  
-  Código React (páginas Home, Parâmetros, Execução, Resultados, Configurações e modal
-  de instalação).
+  Código React:
+  - `pages/Home.tsx`
+  - `pages/Params.tsx`
+  - `pages/Run.tsx`
+  - `pages/Results.tsx`
+  - `pages/Settings.tsx`
+  - `pages/SetupModal.tsx`
+  - estilos, tema e i18n.
+
 - `README.md`  
-  Este arquivo com as instruções de uso do MVP.
+  Este arquivo, com as instruções de uso do MVP.
 
 ---
 
-## 6. Observação sobre uso em produção
+## 6. Próximos passos (futuras versões)
 
-Esta versão **mvp-viralflow-gui_v0.26.8** é indicada apenas para:
+Este MVP foi desenhado para ser a **primeira etapa** da GUI, focada em:
 
-- Demonstrações de UX/UI;
-- Validação de fluxo de telas;
-- Discussão com usuários e partes interessadas, **sem** requisitos de acesso real
-  ao ambiente ViralFlow.
+- Fluxo de navegação entre abas;
+- Usabilidade das telas;
+- Estrutura de logs;
+- Interação com arquivos de parâmetros e resultados.
 
-Para uso em produção será necessário:
+Em versões futuras, poderá ser adicionada a **integração real** com:
 
-- Reativar as chamadas reais ao `micromamba` e ao `viralflow`;
-- Tratar logs e erros de execução reais;
-- Validar permissões e ambiente de execução no SO alvo (.deb, .rpm, etc.).
+- `micromamba` (instalação e gerenciamento de ambientes);
+- `viralflow` (execução real do pipeline);
+- Logs de execução reais, com tratamento de erros, tempo de execução, etc.
 
+Essa integração ainda **não foi implementada** neste projeto — toda a execução é,
+por design, **100% simulada**.
