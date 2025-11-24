@@ -116,32 +116,7 @@ Estas duas abas se comportam de forma mais “realista”, mas ainda sem dispara
 
 ---
 
-## 5. Estrutura geral do projeto
-
-- `electron/main.js`  
-  Processo principal do Electron: IPC, leitura/escrita de arquivos, simulação de
-  instalação/execução e envio de logs.
-
-- `electron/preload.js`  
-  Faz o bridge seguro entre o processo principal e o front-end React, expondo a
-  API em `window.api`.
-
-- `src/`  
-  Código React:
-  - `pages/Home.tsx`
-  - `pages/Params.tsx`
-  - `pages/Run.tsx`
-  - `pages/Results.tsx`
-  - `pages/Settings.tsx`
-  - `pages/SetupModal.tsx`
-  - estilos, tema e i18n.
-
-- `README.md`  
-  Este arquivo, com as instruções de uso do MVP.
-
----
-
-## 6. Próximos passos (futuras versões)
+## 5. Próximos passos (futuras versões)
 
 Este MVP foi desenhado para ser a **primeira etapa** da GUI, focada em:
 
