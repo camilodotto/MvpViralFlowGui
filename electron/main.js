@@ -8,7 +8,7 @@ const { pathToFileURL } = require('url');
 let mainWindow;
 
 // MVP mode: fake installation state and version (no real commands are executed)
-const MVP_VERSION = 'mvp-viralflow-gui_v0.26.8';
+const MVP_VERSION = 'mvp-0.26.8';
 
 const fakeState = {
   micromambaInstalled: false,
